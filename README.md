@@ -84,7 +84,7 @@ Generally, it is recommended to use the latest release of kube-state-metrics. If
 | **v2.11.0**        | v1.28                        |
 | **v2.12.0**        | v1.29                        |
 | **v2.13.0**        | v1.30                        |
-| **main**           | v1.30                        |
+| **main**           | v1.31                        |
 
 #### Resource group version compatibility
 
@@ -407,17 +407,20 @@ Starting from the kube-state-metrics chart `v2.13.3` (kube-state-metrics image `
 
 #### Development
 
-When developing, test a metric dump against your local Kubernetes cluster by
-running:
+When developing, test a metric dump against your local Kubernetes cluster by running:
 
 > Users can override the apiserver address in KUBE-CONFIG file with `--apiserver` command line.
 
- go install
- kube-state-metrics --port=8080 --telemetry-port=8081 --kubeconfig=<KUBE-CONFIG> --apiserver=<APISERVER>
+```
+go install
+kube-state-metrics --port=8080 --telemetry-port=8081 --kubeconfig=<KUBE-CONFIG> --apiserver=<APISERVER>
+```
 
 Then curl the metrics endpoint
 
- curl localhost:8080/metrics
+```
+curl localhost:8080/metrics
+```
 
 To run the e2e tests locally see the documentation in [tests/README.md](./tests/README.md).
 
